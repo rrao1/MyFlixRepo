@@ -15,6 +15,12 @@ public class Movie {
     String backdropPath;
     String overview;
     String releaseDate;
+    double rating;
+    public popValues pop;
+
+    public enum popValues {
+        POP, UNPOP
+    }
 
     public String getReleaseDate() {
         return releaseDate;
@@ -35,6 +41,9 @@ public class Movie {
     public String getBackdropPath() {
         return String.format("https://image.tmdb.org/t/p/w342/%s", backdropPath);
     }
+    public double getRating() {
+        return rating;
+    }
 
 
 
@@ -44,6 +53,17 @@ public class Movie {
         this.overview = jsonObject.getString("overview");
         this.backdropPath = jsonObject.getString("backdrop_path");
         this.releaseDate = jsonObject.getString("release_date");
+        this.rating = jsonObject.getDouble("vote_average");
+        if (rating > 5.00) {
+            pop = popValues.POP;
+        }
+        else {
+            pop = popValues.UNPOP;
+        }
+    }
+
+    public boolean isPopular() {
+        return rating > 5.00;
     }
 
     public static ArrayList<Movie> fromJSONArray(JSONArray array) {

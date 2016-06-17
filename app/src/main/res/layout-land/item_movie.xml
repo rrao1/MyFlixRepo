@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="30dp"
+    android:layout_margin="30dp">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -23,7 +24,8 @@
         android:id="@+id/tvTitle"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivMovieImage"
-        android:layout_toEndOf="@+id/ivMovieImage" />
+        android:layout_toEndOf="@+id/ivMovieImage"
+        android:textColor="@color/colorWhite"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,7 +36,8 @@
         android:layout_toRightOf="@+id/ivMovieImage"
         android:layout_toEndOf="@+id/ivMovieImage"
         android:maxLines="3"
-        android:ellipsize="end"/>
+        android:ellipsize="end"
+        android:textColor="@color/colorWhite"/>
 
 </RelativeLayout>
 

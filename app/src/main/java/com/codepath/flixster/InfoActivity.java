@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 public class InfoActivity extends AppCompatActivity {
 
@@ -22,10 +25,17 @@ public class InfoActivity extends AppCompatActivity {
         String date = getIntent().getStringExtra("release date");
         tvReleaseDate.setText(date);
 
+        ImageView ivBackdrop = (ImageView) findViewById(R.id.ivBackdrop);
+        String bdpath = getIntent().getStringExtra("backdrop");
+        Picasso.with(this).load(bdpath).into(ivBackdrop);
+
         TextView tvOverview = (TextView) findViewById(R.id.tvOverview1);
         String overview = getIntent().getStringExtra("overview");
         tvOverview.setText(overview);
         tvOverview.setMovementMethod(new ScrollingMovementMethod());
+
+
+
 
     }
 
